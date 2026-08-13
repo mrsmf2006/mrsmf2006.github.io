@@ -1,94 +1,168 @@
 const DB = {
     hero: {
-        title: "I enjoy understanding complex systems,<br>building useful things,<br>and documenting what I learn.",
-        intro: "I study technology, systems thinking, product development, and the psychology of learning. This website is my public notebook."
+        name: "سید محمد فخری",
+        nameEn: "Seyed Mohammad Fakhri",
+        role: "کارشناس DevOps و پشتیبان فنی محصول",
+        intro: "متخصص در زمینه DevOps، زیرساخت فنی و توسعه محصول با تجربه در طراحی فلوی کاربری، توسعه ابزارهای نرم‌افزاری و پشتیبانی سرویس‌های ابری. علاقه‌مند به یادگیری مادام‌العمر و حل مسائل ریز و درشت.",
+        location: "قم، ایران",
+        email: "mf0682073@gmail.com",
+        phone: "09035095990",
+        birthDate: "۱۳۸۴/۱۰/۳۰"
     },
-    
-    about: [
-        { title: "I'm interested in", items: ["Systems Architecture", "Product Design", "Learning Psychology", "Automation"] },
-        { title: "Currently learning", items: ["Linux & Networking", "Python (Advanced)", "Logic & Math", "Marketing Analytics"] },
-        { title: "Principles", items: ["Think slowly.", "Build consistently.", "Learn publicly.", "Seek truth.", "Stay curious."] }
-    ],
 
-    timeline: [
-        { year: "2026", event: "Infrastructure, Kubernetes & Systems Architecture" },
-        { year: "2025", event: "Python Automation & Systems Thinking" },
-        { year: "2024", event: "Digital Marketing & Content Strategy (Jamshidbar)" },
-        { year: "2023", event: "UI/UX Design & Visual Arts Fundamentals" }
+    experience: [
+        {
+            title: "کارشناس DevOps و پشتیبان فنی محصول",
+            company: "املاین",
+            period: "فروردین ۱۴۰۵ - اکنون",
+            current: true,
+            description: "مسئول طراحی و بهبود فلوی کاربری، توسعه ابزارهای نرم‌افزاری و مدیریت زیرساخت محصول",
+            responsibilities: [
+                "طراحی و بهبود فلوی کاربری",
+                "توسعه ابزارهای جانبی نرم‌افزار و رفع نیازها",
+                "برنامه‌نویسی و دیباگ با کمک ابزارهای هوش مصنوعی Cursor و Codex",
+                "پشتیبانی فنی سرور، VPN و سایر سرویس‌ها",
+                "پشتیبانی زیرساخت و CI/CD محصول املاین"
+            ],
+            tags: ["DevOps", "Python", "CI/CD", "Docker", "AI Tools"]
+        },
+        {
+            title: "فضای مجازی و پشتیبان سایت",
+            company: "گروه لجستیک بین‌المللی جمشیدبار",
+            period: "آذر ۱۴۰۳ - اکنون",
+            current: true,
+            description: "مدیریت شبکه‌های اجتماعی، پشتیبانی سایت و حل مسائل IT",
+            responsibilities: [
+                "حل مسائل مربوط به آی‌تی کارمندان",
+                "فعالیت در شبکه‌های اجتماعی",
+                "مدیریت سایت"
+            ],
+            tags: ["IT Support", "Social Media", "Web Management"]
+        },
+        {
+            title: "سرپرست آی‌تی",
+            company: "افق کهکشانی جوانان فناور",
+            period: "شهریور ۱۴۰۲ - شهریور ۱۴۰۳",
+            current: false,
+            description: "مدیریت واحد IT و تربیت نیرو",
+            responsibilities: [
+                "مدیریت و پشتیبانی IT",
+                "مدیریت واحد و تربیت نیرو"
+            ],
+            tags: ["IT Management", "Team Leadership"]
+        },
+        {
+            title: "محقق و توسعه‌دهنده XR",
+            company: "افق کهکشانی جوانان فناور",
+            period: "آذر ۱۴۰۱ - شهریور ۱۴۰۳",
+            current: false,
+            description: "تولید محتوای واقعیت مجازی و واقعیت افزوده",
+            responsibilities: [
+                "تولید محتوای واقعیت مجازی و واقعیت افزوده با Blender و Unity",
+                "تحقیق و توسعه ایده‌ها و محصولات کارآمد برای بازآفرینی و استفاده عمومی",
+                "مدیریت پروژه و آموزش نیروها برای توسعه محصول"
+            ],
+            tags: ["Unity", "Blender", "VR", "AR", "XR"]
+        },
+        {
+            title: "کارآموز شبکه",
+            company: "دیدافزار تمیم",
+            period: "خرداد ۱۴۰۰ - شهریور ۱۴۰۰",
+            current: false,
+            description: "کمک در پروژه‌های شبکه و دوربین مداربسته",
+            responsibilities: [
+                "کمک در انجام پروژه‌های مختلف شرکت",
+                "رفع اشکال‌های شبکه، دوربین‌های مداربسته"
+            ],
+            tags: ["Networking", "CCTV"]
+        }
     ],
 
     projects: [
         {
-            title: "Omline",
-            desc: "A digital legal-tech and content infrastructure platform for real estate transactions.",
-            tags: ["Product Strategy", "UI/UX", "Management"],
+            title: "موزه واقعیت مجازی کاخ نیاوران",
+            period: "دی ۱۴۰۱ - مهر ۱۴۰۲",
+            desc: "موزه مجازی اشیاء تاریخی کاخ نیاوران به سفارش این مجموعه و اجرا در نمایشگاه گردشگری در بهمن ۱۴۰۱",
+            tags: ["Unity", "VR", "3D Modeling", "Cultural Heritage"],
             link: "#"
         },
         {
-            title: "Task Space",
-            desc: "An offline modular task management app written in Python with integrated Pomodoro techniques.",
-            tags: ["Python", "Systems Thinking", "App"],
+            title: "مستند هوش مصنوعی",
+            period: "آذر ۱۴۰۳ - آذر ۱۴۰۴",
+            desc: "تولید مستند چند دقیقه‌ای با استفاده از موتور آنریل و سرویس‌های هوش مصنوعی با کیفیت واقع‌گرایانه. فعالیت در فرایند تولید، تحقیق و توسعه و حل مسائل پروژه",
+            tags: ["Unreal Engine", "AI", "Documentary", "Research"],
             link: "#"
+        },
+        {
+            title: "تولید محتوای کانال املاین",
+            period: "دی ۱۴۰۴ - اردیبهشت ۱۴۰۵",
+            desc: "تولید محتوای آموزشی و تبلیغاتی برای کانال املاین",
+            tags: ["Content Creation", "Marketing", "Design"],
+            link: "https://eitaa.com/Amlinebime/508"
         }
     ],
 
-    now: {
-        currently: [
-            { label: "Building", value: "Omline content infrastructure (V2.1)" },
-            { label: "Learning", value: "Mathematical logic to improve cognitive analysis" },
-            { label: "Writing", value: "Personal notes on system architecture" }
+    skills: {
+        technical: [
+            { name: "Python", level: 3 },
+            { name: "Linux", level: 3 },
+            { name: "Docker", level: 3 },
+            { name: "Git", level: 4 },
+            { name: "Project Management", level: 4 },
+            { name: "Troubleshooting", level: 4 },
+            { name: "CompTIA Network+", level: 3 },
+            { name: "Agile", level: 4 }
         ],
-        books: [
-            { title: "Thinking, Fast and Slow", author: "Daniel Kahneman" },
-            { title: "The Pragmatic Programmer", author: "David Thomas" }
+        tools: [
+            "Cursor", "Codex", "Unity", "Blender", "Unreal Engine"
         ],
-        quotes: [
-            "We suffer more in imagination than in reality. — Seneca",
-            "You do not rise to the level of your goals. You fall to the level of your systems. — James Clear"
+        soft: [
+            "برنامه‌نویسی هوش مصنوعی",
+            "مدیریت تیم و فرایند تولید",
+            "طراحی UX/UI",
+            "حل مسئله"
         ]
     },
 
-    // Blog Engine: Write content using standard Markdown syntax
-    articles: [
+    education: [
         {
-            id: "systems-thinking",
-            title: "Thinking about systems and cognitive biases",
-            date: "Oct 2025",
-            readingTime: "4 min",
-            tags: ["Systems", "Psychology"],
-            content: `
-My journey into mathematical logic and systems thinking started when I realized the flaws in human decision-making. 
-
-## The Core Concept
-A system is not just a collection of parts, but the **relationships** between them. When analyzing a failure, we often look at the isolated event, rather than the structure that generated it.
-
-* Focus on the structure, not the symptom.
-* Identify feedback loops.
-* Recognize cognitive biases like the framing effect.
-
-> "A bad system will beat a good person every time." — W. Edwards Deming
-
-I will write more about utilizing tools like the Ishikawa diagram for marketing analytics in the future.
-            `
+            title: "دوره جامع UX/UI و طراحی محصول",
+            institution: "دانشجویار - حسین اصلانی",
+            period: "خرداد ۱۴۰۴ - مهر ۱۴۰۴",
+            desc: "دوره ۹۰ ساعته تخصصی UX-UI و آشنایی با طراحی محصول"
         },
         {
-            id: "learning-networking",
-            title: "Transitioning from Marketing to Infrastructure",
-            date: "April 2026",
-            readingTime: "6 min",
-            tags: ["Career", "Technology"],
-            content: `
-Building digital products requires an understanding of how data actually moves. My focus shifted from just *how it looks* (UI) and *how we sell it* (Marketing) to *how it runs* (Infrastructure).
-
-## The Stack
-I recently started diving deep into:
-1. Linux server management
-2. Kubernetes Cluster setup
-3. Ansible for automation
-4. SIEM and Splunk
-
-This shift isn't about abandoning design; it's about seeing the complete picture of a product.
-            `
+            title: "دوره نتورک پلاس (CompTIA Network+)",
+            institution: "مکتب خونه",
+            period: ""
+        },
+        {
+            title: "دوره پایتون مبتدی",
+            institution: "جادی",
+            period: ""
+        },
+        {
+            title: "آشنایی با گیت و گیت هاب",
+            institution: "جادی",
+            period: ""
+        },
+        {
+            title: "شبکه برای برنامه‌نویسان",
+            institution: "جادی",
+            period: ""
         }
+    ],
+
+    achievements: [
+        {
+            title: "رتبه اول استانی جشنواره محتوای دیجیتال بسیج ۱۴۰۲",
+            date: "آذر ۱۴۰۲",
+            desc: "مدیریت تیم و فرایند تولید انیمیشن با هوش مصنوعی"
+        }
+    ],
+
+    languages: [
+        { name: "فارسی", level: "زبان مادری" },
+        { name: "انگلیسی", level: "متوسط" }
     ]
 };

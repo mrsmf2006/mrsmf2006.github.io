@@ -45,40 +45,57 @@ function updateNav(path) {
 function renderLanding() {
     let html = `
         <section class="hero">
-            <h1>${DB.hero.title}</h1>
+            <h1>${DB.hero.name}</h1>
+            <div class="role">${DB.hero.role}</div>
             <p>${DB.hero.intro}</p>
-        </section>
-
-        <section>
-            <h2 class="section-title">Things I'm Building</h2>
-            <div class="grid-3">
-                ${DB.about.map(col => `
-                    <div class="list-col">
-                        <h3>${col.title}</h3>
-                        <ul>${col.items.map(item => `<li>${item}</li>`).join('')}</ul>
-                    </div>
-                `).join('')}
+            
+            <div class="contact-links">
+                <a href="mailto:${DB.hero.email}" class="contact-link">
+                    <span>📧</span>
+                    <span class="en">${DB.hero.email}</span>
+                </a>
+                <a href="tel:${DB.hero.phone}" class="contact-link">
+                    <span>📱</span>
+                    <span class="en">${DB.hero.phone}</span>
+                </a>
+                <span class="contact-link">
+                    <span>📍</span>
+                    <span>${DB.hero.location}</span>
+                </span>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Timeline</h2>
-            <div>
-                ${DB.timeline.map(item => `
-                    <div class="timeline-item">
-                        <div class="year">${item.year}</div>
-                        <div class="event">${item.event}</div>
-                    </div>
-                `).join('')}
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">تجربیات کاری برجسته</h2>
             <div class="grid-2">
-                ${DB.projects.slice(0, 2).map(p => `
+                ${DB.experience.filter(e => e.current).map(exp => `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3>${exp.title}</h3>
+                                <div class="company">${exp.company}</div>
+                            </div>
+                            <div class="period">${exp.period}</div>
+                        </div>
+                        <p>${exp.description}</p>
+                        <ul>
+                            ${exp.responsibilities.slice(0, 3).map(r => `<li>${r}</li>`).join('')}
+                        </ul>
+                        <div class="tags">${exp.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">پروژه‌های منتخب</h2>
+            <div class="grid-2">
+                ${DB.projects.map(p => `
                     <a href="${p.link}" class="card">
-                        <h3>${p.title}</h3>
+                        <div class="card-header">
+                            <h3>${p.title}</h3>
+                            <div class="period">${p.period}</div>
+                        </div>
                         <p>${p.desc}</p>
                         <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
                     </a>
@@ -87,16 +104,80 @@ function renderLanding() {
         </section>
 
         <section>
-            <h2 class="section-title">Recent Writing</h2>
-            <div>
-                ${DB.articles.slice(0, 3).map(a => `
-                    <a href="#/blog/${a.id}" class="article-link">
-                        <span class="title">${a.title}</span>
-                        <span class="meta">${a.date}</span>
-                    </a>
+            <h2 class="section-title">مهارت‌های کلیدی</h2>
+            <div class="skills-grid">
+                ${DB.skills.technical.slice(0, 6).map(s => `
+                    <div class="skill-item">
+                        <span>${s.name}</span>
+                        <div class="skill-level">
+                            ${[1,2,3,4].map(i => `<span class="skill-dot ${i <= s.level ? 'active' : ''}"></span>`).join('')}
+                        </div>
+                    </div>
                 `).join('')}
             </div>
         </section>
+    `;
+    appRoot.innerHTML = html;
+}
+
+function renderExperience() {
+    let html = `
+        <section>
+            <h2 class="section-title">تجربیات کاری</h2>
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                ${DB.experience.map(exp => `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3>${exp.title}</h3>
+                                <div class="company">${exp.company}</div>
+                            </div>
+                            <div class="period">${exp.period}</div>
+                        </div>
+                        <p>${exp.description}</p>
+                        ${exp.responsibilities ? `
+                            <ul>
+                                ${exp.responsibilities.map(r => `<li>${r}</li>`).join('')}
+                            </ul>
+                        ` : ''}
+                        <div class="tags">${exp.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">آموزش و گواهینامه‌ها</h2>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                ${DB.education.map(edu => `
+                    <div class="card" style="padding: 20px;">
+                        <h3 style="font-size: 16px; margin-bottom: 8px;">${edu.title}</h3>
+                        <div class="company" style="margin-bottom: 8px;">${edu.institution}</div>
+                        ${edu.period ? `<div class="period">${edu.period}</div>` : ''}
+                        ${edu.desc ? `<p style="margin-top: 12px; margin-bottom: 0;">${edu.desc}</p>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        ${DB.achievements.length > 0 ? `
+            <section>
+                <h2 class="section-title">افتخارات</h2>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    ${DB.achievements.map(ach => `
+                        <div class="card" style="padding: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <h3 style="font-size: 16px; margin-bottom: 8px;">🏆 ${ach.title}</h3>
+                                    <p style="margin: 0;">${ach.desc}</p>
+                                </div>
+                                <div class="period">${ach.date}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+        ` : ''}
     `;
     appRoot.innerHTML = html;
 }
@@ -104,11 +185,14 @@ function renderLanding() {
 function renderProjects() {
     let html = `
         <section>
-            <h2 class="section-title">All Projects</h2>
+            <h2 class="section-title">تمام پروژه‌ها</h2>
             <div class="grid-2">
                 ${DB.projects.map(p => `
                     <a href="${p.link}" class="card">
-                        <h3>${p.title}</h3>
+                        <div class="card-header">
+                            <h3>${p.title}</h3>
+                            <div class="period">${p.period}</div>
+                        </div>
                         <p>${p.desc}</p>
                         <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
                     </a>
@@ -119,77 +203,49 @@ function renderProjects() {
     appRoot.innerHTML = html;
 }
 
-function renderBlogList() {
+function renderSkills() {
     let html = `
         <section>
-            <h2 class="section-title">Writing</h2>
-            <div>
-                ${DB.articles.map(a => `
-                    <a href="#/blog/${a.id}" class="article-link">
-                        <span class="title">${a.title}</span>
-                        <span class="meta">${a.date} &nbsp;·&nbsp; ${a.readingTime} read</span>
-                    </a>
-                `).join('')}
-            </div>
-        </section>
-    `;
-    appRoot.innerHTML = html;
-}
-
-function renderArticle(id) {
-    const article = DB.articles.find(a => a.id === id);
-    if (!article) {
-        appRoot.innerHTML = `<section><h1>Post not found.</h1></section>`;
-        return;
-    }
-    
-    let html = `
-        <article>
-            <div class="article-header">
-                <h1>${article.title}</h1>
-                <div class="meta">
-                    <span>${article.date}</span>
-                    <span>${article.readingTime} read</span>
-                    <span>${article.tags.join(', ')}</span>
-                </div>
-            </div>
-            <div class="markdown-body">
-                ${parseMarkdown(article.content)}
-            </div>
-        </article>
-    `;
-    appRoot.innerHTML = html;
-}
-
-function renderNow() {
-    let html = `
-        <section>
-            <h2 class="section-title">Current Focus</h2>
-            <div class="list-col">
-                <ul>
-                    ${DB.now.currently.map(c => `<li><strong>${c.label}:</strong> ${c.value}</li>`).join('')}
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Books That Shaped Me</h2>
-            <div>
-                ${DB.now.books.map(b => `
-                    <div class="list-item">
-                        <div style="font-size: 14px; color: var(--text-primary); margin-right: 8px;">${b.title}</div>
-                        <div style="font-size: 14px; color: var(--text-secondary);">by ${b.author}</div>
+            <h2 class="section-title">مهارت‌های فنی</h2>
+            <div class="skills-grid">
+                ${DB.skills.technical.map(s => `
+                    <div class="skill-item">
+                        <span>${s.name}</span>
+                        <div class="skill-level">
+                            ${[1,2,3,4].map(i => `<span class="skill-dot ${i <= s.level ? 'active' : ''}"></span>`).join('')}
+                        </div>
                     </div>
                 `).join('')}
             </div>
         </section>
-        
+
         <section>
-            <h2 class="section-title">Quotes</h2>
-            <div class="list-col">
-                <ul>
-                    ${DB.now.quotes.map(q => `<li style="font-style: italic;">"${q}"</li>`).join('')}
-                </ul>
+            <h2 class="section-title">ابزارها و تکنولوژی‌ها</h2>
+            <div class="tags" style="margin-top: 16px;">
+                ${DB.skills.tools.map(tool => `<span class="tag">${tool}</span>`).join('')}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">مهارت‌های نرم</h2>
+            <div class="grid-2">
+                ${DB.skills.soft.map(skill => `
+                    <div class="card" style="padding: 20px;">
+                        <h3 style="font-size: 15px; margin: 0;">${skill}</h3>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">زبان‌ها</h2>
+            <div class="grid-2">
+                ${DB.languages.map(lang => `
+                    <div class="card" style="padding: 20px;">
+                        <h3 style="font-size: 15px; margin-bottom: 8px;">${lang.name}</h3>
+                        <p style="margin: 0; font-size: 13px;">${lang.level}</p>
+                    </div>
+                `).join('')}
             </div>
         </section>
     `;
@@ -207,15 +263,12 @@ function router() {
 
     if (path === '' || path === '/') {
         renderLanding();
+    } else if (path === 'experience') {
+        renderExperience();
     } else if (path === 'projects') {
         renderProjects();
-    } else if (path === 'blog') {
-        renderBlogList();
-    } else if (path.startsWith('blog/')) {
-        const slug = path.split('/')[1];
-        renderArticle(slug);
-    } else if (path === 'now') {
-        renderNow();
+    } else if (path === 'skills') {
+        renderSkills();
     } else {
         renderLanding(); // Fallback
     }
