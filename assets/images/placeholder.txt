@@ -1,0 +1,16 @@
+Place your images in this directory:
+
+1. profile.jpg - Your profile photo (800x800px)
+
+2. companies/ folder with:
+   - amline.png
+   - jamshidbar.png
+   - afagh.png
+   - didafzar.png
+
+3. projects/ folder (optional) with:
+   - niavaran.jpg
+   - ai-doc.jpg
+   - amline-channel.jpg
+
+See IMAGE_GUIDE.md for detailed instructions!
