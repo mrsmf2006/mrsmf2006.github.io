@@ -298,7 +298,6 @@ Built this site? Here's what to learn next:
 ## 📧 Contact
 
 - **Email**: mf0682073@gmail.com
-- **Phone**: 09035095990
 - **Location**: Qom, Iran
 
 ## 📄 License

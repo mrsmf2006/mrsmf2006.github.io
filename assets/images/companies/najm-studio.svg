@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="16" fill="#121216" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="26" fill="#181820" stroke="rgba(255, 255, 255, 0.08)"/>
+  <!-- Najm Studio Star Motif -->
+  <path d="M40 22L44.5 34.5L58 40L44.5 45.5L40 58L35.5 45.5L22 40L35.5 34.5Z" fill="#D4AF37"/>
+  <circle cx="40" cy="40" r="4" fill="#0E0E12"/>
+</svg>

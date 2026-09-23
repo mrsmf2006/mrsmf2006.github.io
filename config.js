@@ -5,15 +5,46 @@ const DB = {
         intro: "I specialize in DevOps, infrastructure management, and product development with experience in workflow design, software tool development, and cloud service support. Passionate about lifelong learning and solving problems of all sizes.",
         location: "Qom, Iran",
         email: "mf0682073@gmail.com",
-        phone: "09035095990",
         birthDate: "2006-01-19"
     },
 
     companies: [
-        { name: "Amline", logo: "amline.png" },
-        { name: "Jamshidbar", logo: "jamshidbar.png" },
-        { name: "Afagh Kahkeshani", logo: "afagh.png" },
-        { name: "Didafzar", logo: "didafzar.png" }
+        { 
+            name: "Najm Studio", 
+            logo: "assets/images/companies/najm-studio.png", 
+            fallbackLogo: "assets/images/companies/najm-studio.svg",
+            domain: "Media & Production Studio" 
+        },
+        { 
+            name: "Technoverse", 
+            logo: "assets/images/companies/technoverse.png", 
+            fallbackLogo: "assets/images/companies/technoverse.svg",
+            domain: "Interactive & XR Systems" 
+        },
+        { 
+            name: "Hezartoo", 
+            logo: "assets/images/companies/hezartoo.png", 
+            fallbackLogo: "assets/images/companies/hezartoo.svg",
+            domain: "Creative Lab & Software" 
+        },
+        { 
+            name: "Toyooran Sanat Pouya", 
+            logo: "assets/images/companies/toyooran.png", 
+            fallbackLogo: "assets/images/companies/toyooran.svg",
+            domain: "Industrial Automation & Systems" 
+        },
+        { 
+            name: "Amline", 
+            logo: "assets/images/companies/amline.png", 
+            fallbackLogo: "assets/images/companies/amline.svg",
+            domain: "Digital Real Estate Platform" 
+        },
+        { 
+            name: "Jamshidbar", 
+            logo: "assets/images/companies/jamshidbar.png", 
+            fallbackLogo: "assets/images/companies/jamshidbar.svg",
+            domain: "Logistics & Transport" 
+        }
     ],
 
     experience: [
@@ -75,17 +106,17 @@ const DB = {
             tags: ["Unity", "Blender", "VR", "AR", "XR", "3D Modeling"]
         },
         {
-            title: "Network Intern",
-            company: "Didafzar Tamim",
+            title: "Network & Systems Intern",
+            company: "Toyooran Sanat Pouya",
             period: "Jun 2021 - Sep 2021",
             current: false,
             icon: "🔧",
-            description: "Gained hands-on experience in network operations and CCTV systems.",
+            description: "Gained hands-on experience in network operations, automated control systems, and infrastructure maintenance.",
             responsibilities: [
-                "Assisted with various company projects",
-                "Network troubleshooting and CCTV maintenance"
+                "Assisted with industrial control networks and infrastructure setup",
+                "Network troubleshooting and monitoring systems maintenance"
             ],
-            tags: ["Networking", "CCTV", "Troubleshooting"]
+            tags: ["Networking", "Infrastructure", "Troubleshooting"]
         }
     ],
 

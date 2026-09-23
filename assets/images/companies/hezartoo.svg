@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="16" fill="#121216" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="26" fill="#181820" stroke="rgba(255, 255, 255, 0.08)"/>
+  <!-- Hezartoo Labyrinth Motif -->
+  <rect x="27" y="27" width="26" height="26" rx="4" stroke="#D4AF37" stroke-width="2" fill="none"/>
+  <rect x="33" y="33" width="14" height="14" rx="2" stroke="#FFFFFF" stroke-width="1.5" fill="none"/>
+  <circle cx="40" cy="40" r="2.5" fill="#D4AF37"/>
+</svg>

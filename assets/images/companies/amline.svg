@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="16" fill="#121216" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="26" fill="#181820" stroke="rgba(255, 255, 255, 0.08)"/>
+  <!-- Amline Monogram Motif -->
+  <path d="M28 52L40 28L52 52M32 44H48" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

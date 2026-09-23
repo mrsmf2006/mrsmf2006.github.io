@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="16" fill="#121216" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="26" fill="#181820" stroke="rgba(255, 255, 255, 0.08)"/>
+  <!-- Afagh Cosmic Orbit Motif -->
+  <ellipse cx="40" cy="40" rx="20" ry="9" stroke="#D4AF37" stroke-width="1.8" transform="rotate(-30 40 40)"/>
+  <circle cx="40" cy="40" r="5" fill="#D4AF37"/>
+</svg>

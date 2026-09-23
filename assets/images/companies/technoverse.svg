@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="16" fill="#121216" stroke="rgba(48, 209, 88, 0.3)" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="26" fill="#181820" stroke="rgba(255, 255, 255, 0.08)"/>
+  <!-- Technoverse Isometric Cube Motif -->
+  <path d="M40 24L54 32V48L40 56L26 48V32L40 24Z" stroke="#30D158" stroke-width="1.8" fill="none"/>
+  <path d="M40 24V40M54 32L40 40M26 32L40 40M40 40V56" stroke="#30D158" stroke-width="1.5"/>
+</svg>
