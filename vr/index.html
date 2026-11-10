@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                var l = localStorage.getItem('site_lang');
+                if (l !== 'fa') l = 'en';
+                document.documentElement.lang = l === 'fa' ? 'fa' : 'en';
+                document.documentElement.dir = l === 'fa' ? 'rtl' : 'ltr';
+            } catch (e) {}
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR work</title>
+    <meta name="robots" content="index,follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body data-title-key="vr_meta_title">
+    <div class="loader" id="loader">
+        <div class="loader-indicator"></div>
+        <div class="loader-monogram">VR</div>
+    </div>
+    <div class="standalone">
+        <header class="standalone-top">
+            <div class="standalone-brand">
+                <span class="logo-dot"></span>
+                <span data-i18n="vr_brand">VR</span>
+            </div>
+            <div class="lang-switch" role="group" data-i18n-aria="lang_label" aria-label="Language">
+                <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-set-lang="fa">فا</button>
+            </div>
+        </header>
+        <main id="page"></main>
+        <footer class="standalone-foot">
+            <p data-i18n="footer_copy">© 2026 Seyed Mohammad Fakhri. Engineered with precision and care.</p>
+        </footer>
+    </div>
+    <script src="/assets/js/i18n.js"></script>
+    <script src="/vr/works.js"></script>
+    <script src="/assets/js/showcase.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

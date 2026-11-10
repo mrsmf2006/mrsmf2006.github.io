@@ -1,478 +1,289 @@
 const DB = {
-    hero: {
-        name: "Seyed Mohammad Fakhri",
-        role: "DevOps Engineer & Technical Support Specialist",
-        intro: "I specialize in DevOps, infrastructure management, and product development with experience in workflow design, software tool development, and cloud service support. Passionate about lifelong learning and solving problems of all sizes.",
-        location: "Qom, Iran",
-        email: "mf0682073@gmail.com",
-        birthDate: "2006-01-19"
-    },
-
-    companies: [
-        { 
-            name: "Najm Studio", 
-            logo: "assets/images/companies/najm-studio.png", 
-            fallbackLogo: "assets/images/companies/najm-studio.svg",
-            domain: "Media & Production Studio" 
+    en: {
+        hero: {
+            name: "Seyed Mohammad Fakhri",
+            role: "DevOps Engineer & Technical Support Specialist",
+            intro: "I specialize in DevOps, infrastructure management, and product development with experience in workflow design, software tool development, and cloud service support. Passionate about lifelong learning and solving problems of all sizes.",
+            location: "Qom, Iran",
+            email: "mf0682073@gmail.com"
         },
-        { 
-            name: "Technoverse", 
-            logo: "assets/images/companies/technoverse.png", 
-            fallbackLogo: "assets/images/companies/technoverse.svg",
-            domain: "Interactive & XR Systems" 
-        },
-        { 
-            name: "Hezartoo", 
-            logo: "assets/images/companies/hezartoo.png", 
-            fallbackLogo: "assets/images/companies/hezartoo.svg",
-            domain: "Creative Lab & Software" 
-        },
-        { 
-            name: "Toyooran Sanat Pouya", 
-            logo: "assets/images/companies/toyooran.png", 
-            fallbackLogo: "assets/images/companies/toyooran.svg",
-            domain: "Industrial Automation & Systems" 
-        },
-        { 
-            name: "Amline", 
-            logo: "assets/images/companies/amline.png", 
-            fallbackLogo: "assets/images/companies/amline.svg",
-            domain: "Digital Real Estate Platform" 
-        },
-        { 
-            name: "Jamshidbar", 
-            logo: "assets/images/companies/jamshidbar.png", 
-            fallbackLogo: "assets/images/companies/jamshidbar.svg",
-            domain: "Logistics & Transport" 
-        }
-    ],
-
-    experience: [
-        {
-            title: "DevOps Specialist & Technical Support",
-            company: "Amline",
-            period: "Apr 2025 - Present",
-            current: true,
-            icon: "⚙️",
-            description: "Leading DevOps operations, workflow optimization, and infrastructure management for a digital real estate platform.",
-            responsibilities: [
-                "Design and improve user workflows",
-                "Develop software tools and address technical needs",
-                "Programming and debugging using AI tools (Cursor, Codex)",
-                "Technical support for servers, VPN, and other services",
-                "Infrastructure support and CI/CD for Amline product"
-            ],
-            tags: ["DevOps", "Python", "CI/CD", "Docker", "AI Tools", "Infrastructure"]
-        },
-        {
-            title: "Social Media & Website Support",
-            company: "Jamshidbar International Logistics Group",
-            period: "Dec 2024 - Present",
-            current: true,
-            icon: "🌐",
-            description: "Managing social media presence and providing IT support for an international logistics company.",
-            responsibilities: [
-                "Resolve IT issues for employees",
-                "Social media management and engagement",
-                "Website maintenance and updates"
-            ],
-            tags: ["IT Support", "Social Media", "Web Management"]
-        },
-        {
-            title: "IT Supervisor",
-            company: "Afagh Kahkeshani Javanan Fanavar",
-            period: "Sep 2023 - Sep 2024",
-            current: false,
-            icon: "💼",
-            description: "Led IT operations and team training for a technology innovation company.",
-            responsibilities: [
-                "IT management and support",
-                "Team management and training"
-            ],
-            tags: ["IT Management", "Team Leadership", "Training"]
-        },
-        {
-            title: "XR Researcher & Developer",
-            company: "Afagh Kahkeshani Javanan Fanavar",
-            period: "Dec 2022 - Sep 2024",
-            current: false,
-            icon: "🥽",
-            description: "Developed virtual and augmented reality content using cutting-edge technologies.",
-            responsibilities: [
-                "VR/AR content production with Blender and Unity",
-                "Research and development of innovative products",
-                "Project management and team training"
-            ],
-            tags: ["Unity", "Blender", "VR", "AR", "XR", "3D Modeling"]
-        },
-        {
-            title: "Network & Systems Intern",
-            company: "Toyooran Sanat Pouya",
-            period: "Jun 2021 - Sep 2021",
-            current: false,
-            icon: "🔧",
-            description: "Gained hands-on experience in network operations, automated control systems, and infrastructure maintenance.",
-            responsibilities: [
-                "Assisted with industrial control networks and infrastructure setup",
-                "Network troubleshooting and monitoring systems maintenance"
-            ],
-            tags: ["Networking", "Infrastructure", "Troubleshooting"]
-        }
-    ],
-
-    projects: [
-        {
-            title: "Niavaran Palace Virtual Museum",
-            period: "Jan 2023 - Oct 2023",
-            icon: "🏛️",
-            desc: "Virtual museum showcasing historical artifacts from Niavaran Palace, commissioned for display at a tourism exhibition in February 2023.",
-            tags: ["Unity", "VR", "3D Modeling", "Cultural Heritage", "Exhibition"],
-            link: "#"
-        },
-        {
-            title: "AI Documentary Production",
-            period: "Dec 2024 - Dec 2025",
-            icon: "🎬",
-            desc: "Multi-minute documentary created using Unreal Engine and AI services with photorealistic quality. Involved in production research, development, and problem-solving.",
-            tags: ["Unreal Engine", "AI", "Documentary", "Research", "CGI"],
-            link: "#"
-        },
-        {
-            title: "Amline Channel Content Production",
-            period: "Jan 2026 - May 2026",
-            icon: "📱",
-            desc: "Educational and promotional content creation for Amline's communication channel.",
-            tags: ["Content Creation", "Marketing", "Design", "Social Media"],
-            link: "https://eitaa.com/Amlinebime/508"
-        }
-    ],
-
-    skills: {
-        technical: [
-            { name: "Python", level: 3, icon: "🐍" },
-            { name: "Linux", level: 3, icon: "🐧" },
-            { name: "Docker", level: 3, icon: "🐳" },
-            { name: "Git", level: 4, icon: "📦" },
-            { name: "Project Management", level: 4, icon: "📊" },
-            { name: "Troubleshooting", level: 4, icon: "🔍" },
-            { name: "CompTIA Network+", level: 3, icon: "🌐" },
-            { name: "Agile", level: 4, icon: "⚡" }
+        companies: [
+            { name: "Najm Studio", logo: "/assets/images/companies/najm-studio.png", fallbackLogo: "/assets/images/companies/najm-studio.svg", domain: "Media & Production Studio" },
+            { name: "Technoverse", logo: "/assets/images/companies/technoverse.png", fallbackLogo: "/assets/images/companies/technoverse.svg", domain: "Interactive & XR Systems" },
+            { name: "Hezartoo", logo: "/assets/images/companies/hezartoo.png", fallbackLogo: "/assets/images/companies/hezartoo.svg", domain: "Creative Lab & Software" },
+            { name: "Toyooran Sanat Pouya", logo: "/assets/images/companies/toyooran.png", fallbackLogo: "/assets/images/companies/toyooran.svg", domain: "Industrial Automation & Systems" },
+            { name: "Amline", logo: "/assets/images/companies/amline.png", fallbackLogo: "/assets/images/companies/amline.svg", domain: "Digital Real Estate Platform" },
+            { name: "Jamshidbar", logo: "/assets/images/companies/jamshidbar.png", fallbackLogo: "/assets/images/companies/jamshidbar.svg", domain: "Logistics & Transport" }
         ],
-        tools: [
-            "Cursor", "Codex", "Unity", "Blender", "Unreal Engine", 
-            "Docker", "Ansible", "CI/CD Tools", "Git", "Linux Tools"
+        experience: [
+            {
+                title: "DevOps Specialist & Technical Support",
+                company: "Amline",
+                period: "Apr 2025 - Present",
+                current: true,
+                icon: "devops",
+                description: "Leading DevOps operations, workflow optimization, and infrastructure management for a digital real estate platform.",
+                responsibilities: [
+                    "Design and improve user workflows",
+                    "Develop software tools and address technical needs",
+                    "Programming and debugging using AI tools (Cursor, Codex)",
+                    "Technical support for servers, VPN, and other services",
+                    "Infrastructure support and CI/CD for Amline product"
+                ],
+                tags: ["DevOps", "Python", "CI/CD", "Docker", "AI Tools", "Infrastructure"]
+            },
+            {
+                title: "Social Media & Website Support",
+                company: "Jamshidbar International Logistics Group",
+                period: "Dec 2024 - Present",
+                current: true,
+                icon: "web",
+                description: "Managing social media presence and providing IT support for an international logistics company.",
+                responsibilities: [
+                    "Resolve IT issues for employees",
+                    "Social media management and engagement",
+                    "Website maintenance and updates"
+                ],
+                tags: ["IT Support", "Social Media", "Web Management"]
+            },
+            {
+                title: "IT Supervisor",
+                company: "Afagh Kahkeshani Javanan Fanavar",
+                period: "Sep 2023 - Sep 2024",
+                current: false,
+                icon: "management",
+                description: "Led IT operations and team training for a technology innovation company.",
+                responsibilities: [
+                    "IT management and support",
+                    "Team management and training"
+                ],
+                tags: ["IT Management", "Team Leadership", "Training"]
+            },
+            {
+                title: "XR Researcher & Developer",
+                company: "Afagh Kahkeshani Javanan Fanavar",
+                period: "Dec 2022 – Sep 2024",
+                current: false,
+                icon: "vr",
+                description: "Developed virtual and augmented reality content using cutting-edge technologies.",
+                responsibilities: [
+                    "VR/AR content production with Blender and Unity",
+                    "Research and development of innovative products",
+                    "Project management and team training"
+                ],
+                tags: ["Unity", "Blender", "VR", "AR", "XR", "3D Modeling"]
+            },
+            {
+                title: "Network & Systems Intern",
+                company: "Toyooran Sanat Pouya",
+                period: "Jun 2021 - Sep 2021",
+                current: false,
+                icon: "network",
+                description: "Gained hands-on experience in network operations, automated control systems, and infrastructure maintenance.",
+                responsibilities: [
+                    "Assisted with industrial control networks and infrastructure setup",
+                    "Network troubleshooting and monitoring systems maintenance"
+                ],
+                tags: ["Networking", "Infrastructure", "Troubleshooting"]
+            }
         ],
-        soft: [
-            "AI-Assisted Programming",
-            "Team Management & Training",
-            "UX/UI Design",
-            "Problem Solving",
-            "Communication",
-            "Research & Development"
+        projects: [
+            {
+                title: "Niavaran Palace Virtual Museum",
+                period: "Jan 2023 - Oct 2023",
+                icon: "vr",
+                desc: "Virtual museum showcasing historical artifacts from Niavaran Palace, commissioned for display at a tourism exhibition in February 2023.",
+                tags: ["Unity", "VR", "3D Modeling", "Cultural Heritage", "Exhibition"],
+                link: "#"
+            },
+            {
+                title: "AI Documentary Production",
+                period: "Dec 2024 - Dec 2025",
+                icon: "ai",
+                desc: "Multi-minute documentary created using Unreal Engine and AI services with photorealistic quality. Involved in production research, development, and problem-solving.",
+                tags: ["Unreal Engine", "AI", "Documentary", "Research", "CGI"],
+                link: "#"
+            },
+            {
+                title: "Amline Channel Content Production",
+                period: "Jan 2026 - May 2026",
+                icon: "content",
+                desc: "Educational and promotional content creation for Amline's communication channel.",
+                tags: ["Content Creation", "Marketing", "Design", "Social Media"],
+                link: "https://eitaa.com/Amlinebime/508"
+            }
+        ],
+        capabilities: [
+            { name: "Docker & Containers", domain: "Infrastructure & CI/CD", tier: "Production", fill: "95%", icon: "docker" },
+            { name: "Linux Server Administration", domain: "Core System Operations", tier: "Core Stack", fill: "92%", icon: "cpu" },
+            { name: "Python Automation", domain: "Scripting & Tool Dev", tier: "Production", fill: "88%", icon: "terminal" },
+            { name: "CI/CD & Workflows", domain: "Deployment Pipelines", tier: "Core Stack", fill: "90%", icon: "server" },
+            { name: "Git & Version Control", domain: "Repository Strategy", tier: "Advanced", fill: "95%", icon: "git" },
+            { name: "Network Infrastructure", domain: "VPN, Routing & CCTV", tier: "Operational", fill: "85%", icon: "network" },
+            { name: "AI Tool Integration", domain: "Cursor, Codex & Copilots", tier: "Workflow", fill: "96%", icon: "sparkles" },
+            { name: "XR & Interactive Systems", domain: "Unity, 3D & Virtual Spaces", tier: "Specialized", fill: "82%", icon: "vr" }
+        ],
+        education: [
+            {
+                title: "Comprehensive UX/UI & Product Design Course",
+                institution: "Daneshjooyar — Hussein Aslani",
+                period: "Jun 2025 – Oct 2025",
+                desc: "90-hour specialized course covering UX-UI and product design fundamentals"
+            },
+            { title: "CompTIA Network+ Certification", institution: "Maktab Khaneh", period: "" },
+            { title: "Python for Beginners", institution: "Jadi", period: "" },
+            { title: "Git & GitHub Fundamentals", institution: "Jadi", period: "" },
+            { title: "Networking for Programmers", institution: "Jadi", period: "" }
+        ],
+        achievements: [
+            {
+                title: "1st Place Provincial - Basij Digital Content Festival 2023",
+                date: "Dec 2023",
+                desc: "Team management and AI animation production process"
+            }
         ]
     },
-
-    education: [
-        {
-            title: "Comprehensive UX/UI & Product Design Course",
-            institution: "Daneshjooyar - Hussein Aslani",
-            period: "Jun 2025 - Oct 2025",
-            desc: "90-hour specialized course covering UX-UI and product design fundamentals"
+    fa: {
+        hero: {
+            name: "سید محمد فخری",
+            role: "مهندس دواپس و متخصص پشتیبانی فنی",
+            intro: "روی دواپس، مدیریت زیرساخت و توسعه محصول کار می‌کنم؛ از طراحی گردش‌کار و ساخت ابزار نرم‌افزاری تا پشتیبانی سرویس‌های ابری. یادگیری پیوسته و حل مسئله، در هر مقیاسی، برایم جدی است.",
+            location: "قم، ایران",
+            email: "mf0682073@gmail.com"
         },
-        {
-            title: "CompTIA Network+ Certification",
-            institution: "Maktab Khaneh",
-            period: ""
-        },
-        {
-            title: "Python for Beginners",
-            institution: "Jadi",
-            period: ""
-        },
-        {
-            title: "Git & GitHub Fundamentals",
-            institution: "Jadi",
-            period: ""
-        },
-        {
-            title: "Networking for Programmers",
-            institution: "Jadi",
-            period: ""
-        }
-    ],
-
-    achievements: [
-        {
-            title: "1st Place Provincial - Basij Digital Content Festival 2023",
-            date: "Dec 2023",
-            desc: "Team management and AI animation production process"
-        }
-    ],
-
-    languages: [
-        { name: "Persian", level: "Native" },
-        { name: "English", level: "Intermediate" }
-    ],
-
-    blog: {
-        posts: [
+        companies: [
+            { name: "Najm Studio", logo: "/assets/images/companies/najm-studio.png", fallbackLogo: "/assets/images/companies/najm-studio.svg", domain: "استودیو رسانه و تولید" },
+            { name: "Technoverse", logo: "/assets/images/companies/technoverse.png", fallbackLogo: "/assets/images/companies/technoverse.svg", domain: "سیستم‌های تعاملی و XR" },
+            { name: "Hezartoo", logo: "/assets/images/companies/hezartoo.png", fallbackLogo: "/assets/images/companies/hezartoo.svg", domain: "آزمایشگاه خلاقیت و نرم‌افزار" },
+            { name: "Toyooran Sanat Pouya", logo: "/assets/images/companies/toyooran.png", fallbackLogo: "/assets/images/companies/toyooran.svg", domain: "اتوماسیون صنعتی و سیستم‌ها" },
+            { name: "Amline", logo: "/assets/images/companies/amline.png", fallbackLogo: "/assets/images/companies/amline.svg", domain: "پلتفرم املاک دیجیتال" },
+            { name: "Jamshidbar", logo: "/assets/images/companies/jamshidbar.png", fallbackLogo: "/assets/images/companies/jamshidbar.svg", domain: "لجستیک و حمل‌ونقل" }
+        ],
+        experience: [
             {
-                slug: "devops-journey",
-                title: "My Journey into DevOps: From XR to Infrastructure",
-                excerpt: "How I transitioned from virtual reality development to DevOps engineering and what I learned along the way.",
-                date: "Aug 10, 2026",
-                readTime: "5 min read",
-                tags: ["DevOps", "Career", "Learning"],
-                author: "Seyed Mohammad Fakhri",
-                content: `
-# My Journey into DevOps: From XR to Infrastructure
-
-The transition from XR development to DevOps wasn't something I planned—it evolved naturally as I worked on increasingly complex projects.
-
-## The Turning Point
-
-While working on the Niavaran Palace VR museum project, I realized that understanding infrastructure was just as important as creating beautiful 3D environments. **The best content means nothing if it can't be deployed reliably.**
-
-## What I Learned
-
-### 1. Infrastructure as Code
-Moving from Unity scripts to Docker configurations taught me the importance of reproducible environments. Every deployment should be identical, whether on my local machine or in production.
-
-### 2. Automation is Key
-The principles I learned in 3D animation—automation, scripting, and optimization—transferred beautifully to DevOps. Why manually deploy when you can automate?
-
-### 3. Continuous Learning
-The DevOps landscape changes rapidly. Tools like Docker, Kubernetes, and CI/CD pipelines require constant learning. But that's what makes it exciting.
-
-## Tools I Use Daily
-
-- **Python** for automation scripts
-- **Docker** for containerization
-- **Git** for version control
-- **Linux** as my primary OS
-- **AI tools** (Cursor, Codex) for faster development
-
-## Advice for Others
-
-If you're considering a similar transition:
-
-1. Start with the basics—Linux, networking, Git
-2. Build projects that combine your interests
-3. Don't abandon your creative background—it's your superpower
-4. Automate everything you can
-
-> "The best DevOps engineers aren't just technical—they understand the full lifecycle of a product."
-
-## Looking Forward
-
-I'm excited to deepen my knowledge in:
-- Kubernetes orchestration
-- Infrastructure security
-- Monitoring and observability
-- Cloud-native architectures
-
-The journey continues, and I'm here for it.
-                `
+                title: "متخصص دواپس و پشتیبانی فنی",
+                company: "اَملاین",
+                period: "فروردین ۱۴۰۴ تا اکنون",
+                current: true,
+                icon: "devops",
+                description: "راهبری عملیات دواپس، بهینه‌سازی گردش‌کار و مدیریت زیرساخت یک پلتفرم املاک دیجیتال.",
+                responsibilities: [
+                    "طراحی و بهبود گردش‌کار کاربران",
+                    "ساخت ابزار نرم‌افزاری و پاسخ به نیاز فنی",
+                    "برنامه‌نویسی و دیباگ با ابزارهای هوش مصنوعی (Cursor و Codex)",
+                    "پشتیبانی فنی سرور، VPN و سرویس‌های دیگر",
+                    "پشتیبانی زیرساخت و CI/CD محصول اَملاین"
+                ],
+                tags: ["دواپس", "Python", "CI/CD", "Docker", "ابزار هوش مصنوعی", "زیرساخت"]
             },
             {
-                slug: "ai-tools-development",
-                title: "How AI Tools Changed My Development Workflow",
-                excerpt: "Exploring the impact of AI-assisted coding tools like Cursor and Codex on productivity and code quality.",
-                date: "Aug 5, 2026",
-                readTime: "7 min read",
-                tags: ["AI", "Productivity", "Tools"],
-                author: "Seyed Mohammad Fakhri",
-                content: `
-# How AI Tools Changed My Development Workflow
-
-AI-assisted development tools have transformed how I write code. Here's my honest experience with Cursor and Codex.
-
-## The Initial Skepticism
-
-Like many developers, I was skeptical. "Can AI really understand my codebase?" "Won't it make me lazy?"
-
-The answer surprised me.
-
-## What AI Tools Excel At
-
-### Code Completion
-Not just autocomplete—intelligent suggestions based on context. It understands my patterns and project structure.
-
-### Documentation
-AI tools can generate comprehensive documentation faster than I can type. More importantly, they make documentation **enjoyable**.
-
-### Refactoring
-Suggesting cleaner patterns and identifying code smells has become collaborative instead of tedious.
-
-## Real-World Impact
-
-In my work at Amline, AI tools have:
-- Reduced debugging time by ~40%
-- Improved code documentation quality
-- Accelerated learning of new libraries
-- Made pair programming solo possible
-
-## The Learning Curve
-
-\`\`\`python
-# Before AI assistance
-def process_data(data):
-    # Manual implementation
-    result = []
-    for item in data:
-        if item.status == "active":
-            result.append(item)
-    return result
-
-# With AI suggestions
-def process_data(data: List[DataItem]) -> List[DataItem]:
-    """Filter active items from dataset."""
-    return [item for item in data if item.status == "active"]
-\`\`\`
-
-The AI doesn't just write code—it teaches better patterns.
-
-## Limitations to Remember
-
-1. **Context is everything** - AI needs good prompts
-2. **Not a replacement** - Still need to understand fundamentals
-3. **Review carefully** - AI can hallucinate
-4. **Privacy concerns** - Be mindful of sensitive code
-
-## My Workflow Now
-
-1. Write clear comments describing intent
-2. Let AI suggest implementation
-3. Review and refine suggestions
-4. Test thoroughly
-5. Learn from the patterns
-
-## Conclusion
-
-AI tools are collaborators, not replacements. They amplify your skills but require understanding to use effectively.
-
-The future of development is human + AI, not human vs AI.
-                `
+                title: "پشتیبانی شبکه اجتماعی و وب‌سایت",
+                company: "گروه لجستیک بین‌المللی جمشیدبار",
+                period: "آذر ۱۴۰۳ تا اکنون",
+                current: true,
+                icon: "web",
+                description: "مدیریت حضور در شبکه‌های اجتماعی و پشتیبانی IT یک شرکت لجستیک بین‌المللی.",
+                responsibilities: [
+                    "رفع مشکلات IT کارکنان",
+                    "مدیریت شبکه‌های اجتماعی و تعامل با مخاطب",
+                    "نگهداری و به‌روزرسانی وب‌سایت"
+                ],
+                tags: ["پشتیبانی IT", "شبکه اجتماعی", "مدیریت وب"]
             },
             {
-                slug: "docker-basics",
-                title: "Docker for Beginners: A Practical Introduction",
-                excerpt: "A hands-on guide to understanding and using Docker containers in your development workflow.",
-                date: "Jul 28, 2026",
-                readTime: "10 min read",
-                tags: ["Docker", "DevOps", "Tutorial"],
-                author: "Seyed Mohammad Fakhri",
-                content: `
-# Docker for Beginners: A Practical Introduction
-
-Docker revolutionized how we deploy applications. Here's everything you need to know to get started.
-
-## Why Docker?
-
-Before Docker, "it works on my machine" was every developer's nightmare. Docker solves this by packaging applications with their dependencies.
-
-## Core Concepts
-
-### 1. Images
-Think of images as blueprints. They contain everything needed to run an application.
-
-### 2. Containers
-Containers are running instances of images. They're isolated, lightweight, and portable.
-
-### 3. Dockerfile
-A recipe for building images. Here's a simple example:
-
-\`\`\`dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "app.py"]
-\`\`\`
-
-## Getting Started
-
-### Installation
-Visit [docker.com](https://docker.com) and download Docker Desktop.
-
-### Your First Container
-
-\`\`\`bash
-# Pull an image
-docker pull nginx
-
-# Run a container
-docker run -p 8080:80 nginx
-\`\`\`
-
-Visit localhost:8080 and see Nginx running!
-
-## Real-World Use Cases
-
-At Amline, we use Docker for:
-- **Development environments** - Everyone has identical setups
-- **Testing** - Spin up clean environments instantly
-- **Deployment** - Same container from dev to production
-
-## Best Practices
-
-1. **Use official base images**
-2. **Minimize layers** - Combine RUN commands
-3. **Don't run as root** - Security first
-4. **Use .dockerignore** - Keep images small
-5. **Tag your images** - Version everything
-
-## Common Commands
-
-\`\`\`bash
-# List running containers
-docker ps
-
-# Stop a container
-docker stop <container-id>
-
-# Remove containers
-docker rm <container-id>
-
-# View logs
-docker logs <container-id>
-
-# Execute commands in container
-docker exec -it <container-id> bash
-\`\`\`
-
-## Docker Compose
-
-For multi-container apps, use Docker Compose:
-
-\`\`\`yaml
-version: '3.8'
-services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-  redis:
-    image: "redis:alpine"
-\`\`\`
-
-Run with: \`docker-compose up\`
-
-## Next Steps
-
-Once comfortable with basics, explore:
-- Kubernetes for orchestration
-- Docker networking
-- Multi-stage builds
-- Container security
-
-## Conclusion
-
-Docker is a fundamental DevOps skill. Start small, build projects, and gradually increase complexity.
-
-Your future self will thank you for learning Docker today.
-                `
+                title: "سرپرست IT",
+                company: "افق کهکشانی جوانان فناور",
+                period: "شهریور ۱۴۰۲ تا شهریور ۱۴۰۳",
+                current: false,
+                icon: "management",
+                description: "راهبری عملیات IT و آموزش تیم در یک شرکت نوآوری فناوری.",
+                responsibilities: [
+                    "مدیریت و پشتیبانی IT",
+                    "مدیریت تیم و آموزش"
+                ],
+                tags: ["مدیریت IT", "رهبری تیم", "آموزش"]
+            },
+            {
+                title: "پژوهشگر و توسعه‌دهنده XR",
+                company: "افق کهکشانی جوانان فناور",
+                period: "آذر ۱۴۰۱ تا شهریور ۱۴۰۳",
+                current: false,
+                icon: "vr",
+                description: "تولید محتوای واقعیت مجازی و افزوده با ابزارهای تولید روز.",
+                responsibilities: [
+                    "تولید محتوای VR/AR با بلندر و یونیتی",
+                    "پژوهش و توسعه محصول‌های تازه",
+                    "مدیریت پروژه و آموزش تیم"
+                ],
+                tags: ["Unity", "Blender", "VR", "AR", "XR", "مدل‌سازی سه‌بعدی"]
+            },
+            {
+                title: "کارآموز شبکه و سیستم‌ها",
+                company: "طیوران صنعت پویا",
+                period: "خرداد تا شهریور ۱۴۰۰",
+                current: false,
+                icon: "network",
+                description: "کار عملی در عملیات شبکه، سیستم‌های کنترل خودکار و نگهداری زیرساخت.",
+                responsibilities: [
+                    "کمک به راه‌اندازی شبکه کنترل صنعتی و زیرساخت",
+                    "عیب‌یابی شبکه و نگهداری سیستم‌های پایش"
+                ],
+                tags: ["شبکه", "زیرساخت", "عیب‌یابی"]
+            }
+        ],
+        projects: [
+            {
+                title: "موزه مجازی کاخ نیاوران",
+                period: "دی ۱۴۰۱ تا مهر ۱۴۰۲",
+                icon: "vr",
+                desc: "موزه مجازی آثار تاریخی کاخ نیاوران که برای نمایش در یک رویداد گردشگری در بهمن ۱۴۰۱ سفارش داده شد.",
+                tags: ["Unity", "VR", "مدل‌سازی سه‌بعدی", "میراث فرهنگی", "نمایشگاه"],
+                link: "#"
+            },
+            {
+                title: "تولید مستند با هوش مصنوعی",
+                period: "آذر ۱۴۰۳ تا آذر ۱۴۰۴",
+                icon: "ai",
+                desc: "مستند چنددقیقه‌ای با آنریل انجین و سرویس‌های هوش مصنوعی، با کیفیت نزدیک به واقعیت. در پژوهش تولید، توسعه و حل مسئله نقش داشتم.",
+                tags: ["Unreal Engine", "هوش مصنوعی", "مستند", "پژوهش", "CGI"],
+                link: "#"
+            },
+            {
+                title: "تولید محتوا برای کانال اَملاین",
+                period: "دی ۱۴۰۴ تا اردیبهشت ۱۴۰۵",
+                icon: "content",
+                desc: "ساخت محتوای آموزشی و تبلیغاتی برای کانال ارتباطی اَملاین.",
+                tags: ["تولید محتوا", "بازاریابی", "طراحی", "شبکه اجتماعی"],
+                link: "https://eitaa.com/Amlinebime/508"
+            }
+        ],
+        capabilities: [
+            { name: "داکر و کانتینر", domain: "زیرساخت و CI/CD", tier: "تولید", fill: "95%", icon: "docker" },
+            { name: "مدیریت سرور لینوکس", domain: "عملیات سیستم", tier: "هسته", fill: "92%", icon: "cpu" },
+            { name: "اتوماسیون پایتون", domain: "اسکریپت و ابزار", tier: "تولید", fill: "88%", icon: "terminal" },
+            { name: "گردش‌کار و CI/CD", domain: "پایپ‌لاین استقرار", tier: "هسته", fill: "90%", icon: "server" },
+            { name: "گیت و کنترل نسخه", domain: "استراتژی مخزن", tier: "پیشرفته", fill: "95%", icon: "git" },
+            { name: "زیرساخت شبکه", domain: "VPN، مسیریابی و دوربین", tier: "عملیاتی", fill: "85%", icon: "network" },
+            { name: "ابزارهای هوش مصنوعی", domain: "Cursor، Codex و دستیارها", tier: "گردش‌کار", fill: "96%", icon: "sparkles" },
+            { name: "XR و سیستم تعاملی", domain: "یونیتی، سه‌بعدی و فضای مجازی", tier: "تخصصی", fill: "82%", icon: "vr" }
+        ],
+        education: [
+            {
+                title: "دوره جامع UX/UI و طراحی محصول",
+                institution: "دانشجویار — حسین اصلانی",
+                period: "خرداد تا مهر ۱۴۰۴",
+                desc: "دوره ۹۰ ساعته مبانی تجربه کاربری، رابط کاربری و طراحی محصول."
+            },
+            { title: "گواهی CompTIA Network+", institution: "مکتب‌خونه", period: "" },
+            { title: "پایتون برای مبتدیان", institution: "جادی", period: "" },
+            { title: "مبانی گیت و گیت‌هاب", institution: "جادی", period: "" },
+            { title: "شبکه برای برنامه‌نویسان", institution: "جادی", period: "" }
+        ],
+        achievements: [
+            {
+                title: "رتبه اول استانی، جشنواره محتوای دیجیتال بسیج ۱۴۰۲",
+                date: "آذر ۱۴۰۲",
+                desc: "مدیریت تیم و فرایند تولید انیمیشن با هوش مصنوعی."
             }
         ]
     }
