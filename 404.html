@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=./">
+    <title>Redirecting…</title>
     <script>
-        // Redirect SPA hash routing if needed
-        sessionStorage.redirect = location.href;
-        window.location.replace("./");
+        (function () {
+            var path = location.pathname || '/';
+            if (path === '/vr' || path.indexOf('/vr/') === 0) {
+                location.replace('/vr/');
+                return;
+            }
+            if (path === '/ai' || path.indexOf('/ai/') === 0) {
+                location.replace('/ai/');
+                return;
+            }
+            if (path === '/blog' || path.indexOf('/blog/') === 0) {
+                location.replace('/blog/');
+                return;
+            }
+            location.replace('/');
+        })();
     </script>
-    <title>Redirecting...</title>
 </head>
-<body style="background: #000; color: #fff; font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-    <p>Redirecting to Seyed Mohammad Fakhri Portfolio...</p>
+<body style="background:#000;color:#fff;font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+    <p>Redirecting…</p>
 </body>
 </html>

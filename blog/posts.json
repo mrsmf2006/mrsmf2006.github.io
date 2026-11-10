@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "devops-journey",
+    "date": "2026-08-10",
+    "en": {
+      "title": "My Journey into DevOps: From XR to Infrastructure",
+      "excerpt": "How I transitioned from virtual reality development to DevOps engineering and what I learned along the way.",
+      "readTime": "5 min read",
+      "tags": [
+        "DevOps",
+        "Career",
+        "Learning"
+      ],
+      "author": "Seyed Mohammad Fakhri"
+    },
+    "fa": {
+      "title": "مسیر من به دواپس: از XR تا زیرساخت",
+      "excerpt": "چطور از توسعه واقعیت مجازی به مهندسی دواپس رسیدم و در این مسیر چه یاد گرفتم.",
+      "readTime": "۵ دقیقه مطالعه",
+      "tags": [
+        "دواپس",
+        "مسیر شغلی",
+        "یادگیری"
+      ],
+      "author": "سید محمد فخری"
+    }
+  },
+  {
+    "slug": "ai-tools-development",
+    "date": "2026-08-05",
+    "en": {
+      "title": "How AI Tools Changed My Development Workflow",
+      "excerpt": "Exploring the impact of AI-assisted coding tools like Cursor and Codex on productivity and code quality.",
+      "readTime": "7 min read",
+      "tags": [
+        "AI",
+        "Productivity",
+        "Tools"
+      ],
+      "author": "Seyed Mohammad Fakhri"
+    },
+    "fa": {
+      "title": "ابزارهای هوش مصنوعی چطور گردش‌کار توسعه را عوض کردند",
+      "excerpt": "اثر ابزارهای کدنویسی مثل Cursor و Codex بر سرعت و کیفیت کد، از تجربه واقعی.",
+      "readTime": "۷ دقیقه مطالعه",
+      "tags": [
+        "هوش مصنوعی",
+        "بهره‌وری",
+        "ابزار"
+      ],
+      "author": "سید محمد فخری"
+    }
+  },
+  {
+    "slug": "docker-basics",
+    "date": "2026-07-28",
+    "en": {
+      "title": "Docker for Beginners: A Practical Introduction",
+      "excerpt": "A hands-on guide to understanding and using Docker containers in your development workflow.",
+      "readTime": "10 min read",
+      "tags": [
+        "Docker",
+        "DevOps",
+        "Tutorial"
+      ],
+      "author": "Seyed Mohammad Fakhri"
+    },
+    "fa": {
+      "title": "داکر برای شروع: یک مقدمه عملی",
+      "excerpt": "راهنمای عملی برای فهم کانتینر و استفاده از داکر در گردش‌کار توسعه.",
+      "readTime": "۱۰ دقیقه مطالعه",
+      "tags": [
+        "داکر",
+        "دواپس",
+        "آموزش"
+      ],
+      "author": "سید محمد فخری"
+    }
+  }
+]
