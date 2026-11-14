@@ -2,8 +2,8 @@ const DB = {
     en: {
         hero: {
             name: "Seyed Mohammad Fakhri",
-            role: "DevOps Engineer & Technical Support Specialist",
-            intro: "I specialize in DevOps, infrastructure management, and product development with experience in workflow design, software tool development, and cloud service support. Passionate about lifelong learning and solving problems of all sizes.",
+            role: "Technical Support Specialist",
+            intro: "I work across infrastructure, product development, workflow design, software tools, and cloud support. Passionate about lifelong learning and solving problems of all sizes.",
             location: "Qom, Iran",
             email: "mf0682073@gmail.com"
         },
@@ -146,8 +146,8 @@ const DB = {
     fa: {
         hero: {
             name: "سید محمد فخری",
-            role: "مهندس دواپس و متخصص پشتیبانی فنی",
-            intro: "روی دواپس، مدیریت زیرساخت و توسعه محصول کار می‌کنم؛ از طراحی گردش‌کار و ساخت ابزار نرم‌افزاری تا پشتیبانی سرویس‌های ابری. یادگیری پیوسته و حل مسئله، در هر مقیاسی، برایم جدی است.",
+            role: "متخصص پشتیبانی فنی",
+            intro: "روی زیرساخت، توسعه محصول، طراحی گردش‌کار، ابزار نرم‌افزاری و پشتیبانی ابری کار می‌کنم. یادگیری پیوسته و حل مسئله، در هر مقیاسی، برایم جدی است.",
             location: "قم، ایران",
             email: "mf0682073@gmail.com"
         },

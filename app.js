@@ -30,12 +30,11 @@ function content() {
 }
 
 const SYSTEM_PARTS = [
-    { key: 'business', label: 'Business', angle: 246, color: '#E7B089' },
-    { key: 'cyber', label: 'Cybersecurity', angle: -66, color: '#3DDC97' },
-    { key: 'creativity', label: 'Creativity', angle: 196, color: '#C084FC' },
-    { key: 'design', label: 'Design', angle: 2, color: '#7DD3FC' },
-    { key: 'product', label: 'Product', angle: 62, color: '#F472B6' },
-    { key: 'devops', label: 'Dev-ops', angle: 122, color: '#F2D57E' }
+    { key: 'cyber', label: 'Cybersecurity', angle: -90, color: '#3DDC97' },
+    { key: 'design', label: 'Design', angle: -18, color: '#7DD3FC' },
+    { key: 'product', label: 'Product', angle: 54, color: '#F472B6' },
+    { key: 'business', label: 'Business', angle: 126, color: '#E7B089' },
+    { key: 'creativity', label: 'Creativity', angle: 198, color: '#C084FC' }
 ];
 
 function systemMarkup() {
