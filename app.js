@@ -47,16 +47,25 @@ function systemMarkup() {
             </div>
             <div class="system-stage">
                 <svg class="system-svg" aria-hidden="true"></svg>
+                <div class="orbit-rotor orbit-flows-rotor">
+                    <svg class="orbit-flows" aria-hidden="true"></svg>
+                </div>
                 <div class="orbit-core">
                     <div class="orbit-sun"></div>
                     <p class="orbit-core-label">${t('system_core')}</p>
                     <p class="orbit-focus" aria-live="polite"></p>
                 </div>
-                ${SYSTEM_PARTS.map((part) => `
-                    <button type="button" class="orbit-node" data-key="${part.key}" data-angle="${part.angle}" data-color="${part.color}" style="--node: ${part.color}" aria-pressed="false">
-                        ${part.label}
-                    </button>
-                `).join('')}
+                <div class="orbit-rotor orbit-nodes-rotor">
+                    ${SYSTEM_PARTS.map((part) => `
+                        <div class="orbit-arm" style="--angle: ${part.angle}deg">
+                            <div class="orbit-slot" style="--angle: ${part.angle}deg">
+                                <button type="button" class="orbit-node" data-key="${part.key}" data-angle="${part.angle}" data-color="${part.color}" style="--node: ${part.color}" aria-pressed="false">
+                                    ${part.label}
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
                 <p class="system-note">${t('system_note')}</p>
             </div>
         </section>
@@ -66,10 +75,12 @@ function systemMarkup() {
 function layoutSystem(stage) {
     if (!stage) return;
     const svg = stage.querySelector('.system-svg');
+    const flowsSvg = stage.querySelector('.orbit-flows');
+    const rotors = [...stage.querySelectorAll('.orbit-rotor')];
     const nodes = [...stage.querySelectorAll('.orbit-node')];
     const w = stage.clientWidth;
     const h = stage.clientHeight;
-    if (!svg || w < 40 || h < 40) return;
+    if (!svg || !flowsSvg || !rotors.length || w < 40 || h < 40) return;
 
     const ns = 'http://www.w3.org/2000/svg';
     const cx = w / 2;
@@ -111,14 +122,22 @@ function layoutSystem(stage) {
     beam.setAttribute('class', 'system-beam');
     svg.appendChild(beam);
 
+    rotors.forEach((rotor) => {
+        rotor.style.left = `${cx}px`;
+        rotor.style.top = `${cy}px`;
+        rotor.style.setProperty('--orbit-radius', `${radius}px`);
+    });
+
+    flowsSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    flowsSvg.style.width = `${w}px`;
+    flowsSvg.style.height = `${h}px`;
+    flowsSvg.style.left = `${-cx}px`;
+    flowsSvg.style.top = `${-cy}px`;
+    flowsSvg.replaceChildren();
+
     const flows = document.createElementNS(ns, 'g');
     nodes.forEach((node, index) => {
         const angle = Number(node.dataset.angle) * Math.PI / 180;
-        const x = cx + Math.cos(angle) * radius;
-        const y = cy + Math.sin(angle) * radius;
-        node.style.left = `${x}px`;
-        node.style.top = `${y}px`;
-
         const start = radius - (w < 720 ? 40 : 54);
         const end = 26;
         const x1 = cx + Math.cos(angle) * start;
@@ -167,7 +186,7 @@ function layoutSystem(stage) {
         }
         flows.appendChild(group);
     });
-    svg.appendChild(flows);
+    flowsSvg.appendChild(flows);
 
     const core = stage.querySelector('.orbit-core');
     core.style.left = `${cx}px`;

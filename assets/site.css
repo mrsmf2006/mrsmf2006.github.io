@@ -1536,6 +1536,7 @@
         }
 
         .system-stage {
+            --orbit-radius: 200px;
             position: relative;
             height: 680px;
             border-radius: var(--radius-xl);
@@ -1550,12 +1551,49 @@
             overflow: hidden;
         }
 
-        .system-svg {
+        .system-svg,
+        .orbit-flows {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
+        }
+
+        .orbit-rotor {
+            --orbit-turn: 28s;
+            position: absolute;
+            width: 0;
+            height: 0;
+            transform-origin: 0 0;
+            animation: orbitSpin var(--orbit-turn) linear infinite;
+        }
+
+        .orbit-flows-rotor { z-index: 1; }
+        .orbit-nodes-rotor { z-index: 4; }
+
+        .orbit-flows {
+            z-index: 1;
+            overflow: visible;
+        }
+
+        .orbit-arm {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            transform-origin: 0 0;
+            transform: rotate(var(--angle)) translateX(var(--orbit-radius));
+        }
+
+        .orbit-slot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            transform-origin: center;
+            animation: orbitUpright var(--orbit-turn) linear infinite;
         }
 
         .system-ring {
@@ -1614,7 +1652,7 @@
             transform: translate(-50%, 0);
             text-align: center;
             pointer-events: none;
-            z-index: 2;
+            z-index: 3;
         }
 
         .orbit-sun {
@@ -1684,10 +1722,9 @@
         }
 
         .orbit-node {
-            position: absolute;
+            position: relative;
             z-index: 3;
             direction: ltr;
-            transform: translate(-50%, -50%);
             max-width: 148px;
             padding: 10px 14px;
             border-radius: var(--radius-pill);
@@ -1725,7 +1762,7 @@
             outline: none;
             color: #fff;
             border-color: var(--node);
-            transform: translate(-50%, -50%) scale(1.05);
+            transform: scale(1.05);
             box-shadow:
                 0 0 22px color-mix(in srgb, var(--node) 45%, transparent),
                 inset 0 1px 0 rgba(255, 255, 255, 0.16);
@@ -1748,6 +1785,15 @@
             to { transform: rotate(360deg); }
         }
 
+        @keyframes orbitSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes orbitUpright {
+            from { transform: translate(-50%, -50%) rotate(calc(var(--angle) * -1)); }
+            to { transform: translate(-50%, -50%) rotate(calc(var(--angle) * -1 - 360deg)); }
+        }
+
         @media (max-width: 720px) {
             .system-stage { height: 600px; }
             .orbit-core { width: min(180px, 52%); }
@@ -1758,8 +1804,13 @@
         @media (prefers-reduced-motion: reduce) {
             .flow-hot,
             .orbit-sun,
-            .system-ticks {
+            .system-ticks,
+            .orbit-rotor,
+            .orbit-slot {
                 animation: none;
+            }
+            .orbit-slot {
+                transform: translate(-50%, -50%) rotate(calc(var(--angle) * -1));
             }
             .flow-hot {
                 stroke-dasharray: none;
