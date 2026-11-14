@@ -1529,3 +1529,241 @@
             .work-card { grid-template-columns: 1fr; gap: 8px; padding: 22px; }
             header { gap: 12px; }
         }
+
+        /* --- Interdisciplinary system diagram --- */
+        .system-section {
+            margin: 8px 0 72px;
+        }
+
+        .system-stage {
+            position: relative;
+            height: 680px;
+            border-radius: var(--radius-xl);
+            background:
+                radial-gradient(circle at 50% 42%, rgba(242, 213, 126, 0.08), transparent 28%),
+                radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.03), transparent 46%),
+                linear-gradient(180deg, rgba(22, 22, 26, 0.72), rgba(10, 10, 12, 0.9));
+            border: 1px solid var(--border-specular);
+            box-shadow:
+                0 18px 40px -18px rgba(0, 0, 0, 0.65),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .system-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .system-ring {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.055);
+            stroke-width: 1;
+        }
+
+        .system-ticks {
+            fill: none;
+            stroke: rgba(242, 213, 126, 0.28);
+            stroke-width: 1.25;
+            stroke-dasharray: 1.5 13;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: systemSpin 90s linear infinite;
+        }
+
+        .system-beam {
+            stroke: rgba(242, 213, 126, 0.35);
+            stroke-width: 1;
+            stroke-dasharray: 2 7;
+        }
+
+        .flow-base {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.14);
+            stroke-width: 1;
+        }
+
+        .flow-hot {
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-dasharray: 12 78;
+            animation: systemFlow 2.7s linear infinite;
+            filter: url(#system-glow);
+        }
+
+        .flow-orb {
+            filter: url(#system-glow);
+        }
+
+        .flow.is-quiet {
+            opacity: 0.18;
+        }
+
+        .flow.is-active .flow-hot {
+            stroke-width: 2.8;
+            stroke-dasharray: 36 28;
+        }
+
+        .orbit-core {
+            position: absolute;
+            width: min(240px, 34%);
+            transform: translate(-50%, 0);
+            text-align: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .orbit-sun {
+            width: 14px;
+            height: 14px;
+            margin: -7px auto 12px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow:
+                0 0 10px #fff,
+                0 0 26px #f2d57e,
+                0 0 70px rgba(242, 213, 126, 0.55);
+            animation: sunPulse 2.7s ease-in-out infinite;
+        }
+
+        .orbit-core.is-hot .orbit-sun {
+            background: var(--hot, #fff);
+            box-shadow:
+                0 0 12px #fff,
+                0 0 28px var(--hot, #f2d57e),
+                0 0 72px var(--hot, #f2d57e);
+        }
+
+        .orbit-core-label {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-gold-light);
+        }
+
+        html[lang="fa"] .orbit-core-label {
+            font-family: "Vazirmatn", var(--font-display);
+            font-size: 17px;
+            font-weight: 650;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .orbit-focus {
+            min-height: 1.35em;
+            margin: 8px 0 0;
+            font-size: 12.5px;
+            line-height: 1.45;
+            color: var(--text-primary);
+        }
+
+        .system-note {
+            position: absolute;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            width: min(520px, 86%);
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.65;
+            color: #f5f5f7;
+            z-index: 2;
+        }
+
+        html[lang="fa"] .system-note,
+        html[lang="fa"] .orbit-focus {
+            font-family: "Vazirmatn", var(--font-body);
+        }
+
+        .orbit-node {
+            position: absolute;
+            z-index: 3;
+            direction: ltr;
+            transform: translate(-50%, -50%);
+            max-width: 148px;
+            padding: 10px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(16, 16, 20, 0.82);
+            color: #f5f5f7;
+            font-family: var(--font-display);
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            text-align: center;
+            cursor: pointer;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: transform 0.35s var(--ease-apple), border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+        }
+
+        .orbit-node::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-inline-end: 8px;
+            border-radius: 50%;
+            background: var(--node);
+            box-shadow: 0 0 10px var(--node);
+            vertical-align: 1px;
+        }
+
+        .orbit-node:hover,
+        .orbit-node:focus-visible,
+        .orbit-node.is-hot {
+            outline: none;
+            color: #fff;
+            border-color: var(--node);
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow:
+                0 0 22px color-mix(in srgb, var(--node) 45%, transparent),
+                inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        }
+
+        .orbit-node.is-quiet {
+            opacity: 0.45;
+        }
+
+        @keyframes systemFlow {
+            to { stroke-dashoffset: -90; }
+        }
+
+        @keyframes sunPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.38); }
+        }
+
+        @keyframes systemSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 720px) {
+            .system-stage { height: 600px; }
+            .orbit-core { width: min(180px, 52%); }
+            .orbit-node { max-width: 104px; font-size: 12px; padding: 8px 10px; }
+            .system-note { font-size: 14.5px; bottom: 16px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .flow-hot,
+            .orbit-sun,
+            .system-ticks {
+                animation: none;
+            }
+            .flow-hot {
+                stroke-dasharray: none;
+                opacity: 0.85;
+            }
+            .flow-orb { display: none; }
+        }

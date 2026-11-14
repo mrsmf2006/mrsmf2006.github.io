@@ -29,6 +29,243 @@ function content() {
     return DB[lang] || DB.en;
 }
 
+const SYSTEM_PARTS = [
+    { key: 'business', label: 'Business', angle: 246, color: '#E7B089' },
+    { key: 'cyber', label: 'Cybersecurity', angle: -66, color: '#3DDC97' },
+    { key: 'creativity', label: 'Creativity', angle: 196, color: '#C084FC' },
+    { key: 'design', label: 'Design', angle: 2, color: '#7DD3FC' },
+    { key: 'product', label: 'Product', angle: 62, color: '#F472B6' },
+    { key: 'devops', label: 'Dev-ops', angle: 122, color: '#F2D57E' }
+];
+
+function systemMarkup() {
+    const t = SiteLang.t;
+    return `
+        <section class="system-section" aria-labelledby="system-title">
+            <div class="section-header">
+                <div class="section-eyebrow">${ICONS.sparkles}<span>${t('system_kicker')}</span></div>
+                <h2 class="section-title" id="system-title">${t('system_title')}</h2>
+            </div>
+            <div class="system-stage">
+                <svg class="system-svg" aria-hidden="true"></svg>
+                <div class="orbit-core">
+                    <div class="orbit-sun"></div>
+                    <p class="orbit-core-label">${t('system_core')}</p>
+                    <p class="orbit-focus" aria-live="polite"></p>
+                </div>
+                ${SYSTEM_PARTS.map((part) => `
+                    <button type="button" class="orbit-node" data-key="${part.key}" data-angle="${part.angle}" data-color="${part.color}" style="--node: ${part.color}" aria-pressed="false">
+                        ${part.label}
+                    </button>
+                `).join('')}
+                <p class="system-note">${t('system_note')}</p>
+            </div>
+        </section>
+    `;
+}
+
+function layoutSystem(stage) {
+    if (!stage) return;
+    const svg = stage.querySelector('.system-svg');
+    const nodes = [...stage.querySelectorAll('.orbit-node')];
+    const w = stage.clientWidth;
+    const h = stage.clientHeight;
+    if (!svg || w < 40 || h < 40) return;
+
+    const ns = 'http://www.w3.org/2000/svg';
+    const cx = w / 2;
+    const cy = h * 0.43;
+    const pad = w < 720 ? 62 : 92;
+    const radius = Math.max(108, Math.min(w / 2 - pad, h * 0.33));
+
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    svg.replaceChildren();
+
+    const defs = document.createElementNS(ns, 'defs');
+    defs.innerHTML = `
+        <filter id="system-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="2.4" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    `;
+    svg.appendChild(defs);
+
+    const rings = document.createElementNS(ns, 'g');
+    [0.62, 1, 1.18].forEach((scale) => {
+        const ring = document.createElementNS(ns, 'circle');
+        ring.setAttribute('cx', cx);
+        ring.setAttribute('cy', cy);
+        ring.setAttribute('r', radius * scale);
+        ring.setAttribute('class', scale === 1 ? 'system-ticks' : 'system-ring');
+        rings.appendChild(ring);
+    });
+    svg.appendChild(rings);
+
+    const beam = document.createElementNS(ns, 'line');
+    beam.setAttribute('x1', cx);
+    beam.setAttribute('y1', cy + 16);
+    beam.setAttribute('x2', cx);
+    beam.setAttribute('y2', h - 78);
+    beam.setAttribute('class', 'system-beam');
+    svg.appendChild(beam);
+
+    const flows = document.createElementNS(ns, 'g');
+    nodes.forEach((node, index) => {
+        const angle = Number(node.dataset.angle) * Math.PI / 180;
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+        node.style.left = `${x}px`;
+        node.style.top = `${y}px`;
+
+        const start = radius - (w < 720 ? 40 : 54);
+        const end = 26;
+        const x1 = cx + Math.cos(angle) * start;
+        const y1 = cy + Math.sin(angle) * start;
+        const x2 = cx + Math.cos(angle) * end;
+        const y2 = cy + Math.sin(angle) * end;
+        const mx = (x1 + x2) / 2;
+        const my = (y1 + y2) / 2;
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const len = Math.hypot(dx, dy) || 1;
+        const bow = w < 720 ? 22 : 34;
+        const d = `M ${x1} ${y1} Q ${mx + (-dy / len) * bow} ${my + (dx / len) * bow} ${x2} ${y2}`;
+        const id = `flow-${node.dataset.key}`;
+
+        const group = document.createElementNS(ns, 'g');
+        group.setAttribute('class', 'flow');
+        group.dataset.key = node.dataset.key;
+
+        const base = document.createElementNS(ns, 'path');
+        base.setAttribute('d', d);
+        base.setAttribute('class', 'flow-base');
+
+        const hot = document.createElementNS(ns, 'path');
+        hot.setAttribute('id', id);
+        hot.setAttribute('d', d);
+        hot.setAttribute('class', 'flow-hot');
+        hot.setAttribute('stroke', node.dataset.color);
+        hot.style.animationDelay = `${index * -0.42}s`;
+
+        group.append(base, hot);
+        for (let orbIndex = 0; orbIndex < 2; orbIndex += 1) {
+            const orb = document.createElementNS(ns, 'circle');
+            orb.setAttribute('r', orbIndex === 0 ? '3.1' : '1.8');
+            orb.setAttribute('fill', '#ffffff');
+            orb.setAttribute('class', 'flow-orb');
+            const motion = document.createElementNS(ns, 'animateMotion');
+            motion.setAttribute('dur', `${2.5 + index * 0.18}s`);
+            motion.setAttribute('repeatCount', 'indefinite');
+            motion.setAttribute('begin', `${-(orbIndex * 1.25 + index * 0.35)}s`);
+            const mpath = document.createElementNS(ns, 'mpath');
+            mpath.setAttribute('href', `#${id}`);
+            motion.appendChild(mpath);
+            orb.appendChild(motion);
+            group.appendChild(orb);
+        }
+        flows.appendChild(group);
+    });
+    svg.appendChild(flows);
+
+    const core = stage.querySelector('.orbit-core');
+    core.style.left = `${cx}px`;
+    core.style.top = `${cy}px`;
+
+    const active = stage.querySelector('.orbit-node.is-hot');
+    if (active) setSystemHot(stage, active.dataset.key);
+}
+
+function setSystemHot(stage, key) {
+    stage.querySelectorAll('.flow').forEach((flow) => {
+        const on = !!key && flow.dataset.key === key;
+        flow.classList.toggle('is-active', on);
+        flow.classList.toggle('is-quiet', !!key && !on);
+    });
+    stage.querySelectorAll('.orbit-node').forEach((node) => {
+        const on = !!key && node.dataset.key === key;
+        node.classList.toggle('is-hot', on);
+        node.classList.toggle('is-quiet', !!key && !on);
+    });
+    const core = stage.querySelector('.orbit-core');
+    const focus = stage.querySelector('.orbit-focus');
+    if (key) {
+        const node = stage.querySelector(`.orbit-node[data-key="${key}"]`);
+        core.style.setProperty('--hot', node.dataset.color);
+        core.classList.add('is-hot');
+        focus.textContent = SiteLang.t(`system_focus_${key}`);
+    } else {
+        core.classList.remove('is-hot');
+        focus.textContent = '';
+    }
+}
+
+function bindSystem(stage) {
+    let pinned = null;
+    stage.addEventListener('pointerover', (event) => {
+        const node = event.target.closest('.orbit-node');
+        if (!node || pinned) return;
+        setSystemHot(stage, node.dataset.key);
+    });
+    stage.addEventListener('pointerout', (event) => {
+        const node = event.target.closest('.orbit-node');
+        if (!node || pinned) return;
+        if (node.contains(event.relatedTarget)) return;
+        setSystemHot(stage, null);
+    });
+    stage.addEventListener('focusin', (event) => {
+        const node = event.target.closest('.orbit-node');
+        if (!node || pinned) return;
+        setSystemHot(stage, node.dataset.key);
+    });
+    stage.addEventListener('focusout', (event) => {
+        if (pinned) return;
+        if (stage.contains(event.relatedTarget)) return;
+        setSystemHot(stage, null);
+    });
+    stage.addEventListener('click', (event) => {
+        const node = event.target.closest('.orbit-node');
+        if (!node) {
+            pinned = null;
+            stage.querySelectorAll('.orbit-node').forEach((item) => item.setAttribute('aria-pressed', 'false'));
+            setSystemHot(stage, null);
+            return;
+        }
+        const key = node.dataset.key;
+        if (pinned === key) {
+            pinned = null;
+            node.setAttribute('aria-pressed', 'false');
+            setSystemHot(stage, null);
+            return;
+        }
+        pinned = key;
+        stage.querySelectorAll('.orbit-node').forEach((item) => {
+            item.setAttribute('aria-pressed', item === node ? 'true' : 'false');
+        });
+        setSystemHot(stage, key);
+    });
+}
+
+function mountSystem(root) {
+    const stage = root.querySelector('.system-stage');
+    if (!stage) return;
+    bindSystem(stage);
+    requestAnimationFrame(() => layoutSystem(stage));
+}
+
+if (!window.__systemResize) {
+    window.__systemResize = true;
+    let systemResizeTimer = 0;
+    window.addEventListener('resize', () => {
+        window.clearTimeout(systemResizeTimer);
+        systemResizeTimer = window.setTimeout(() => {
+            layoutSystem(document.querySelector('.system-stage'));
+        }, 60);
+    });
+}
+
 function updateNav(path) {
     document.querySelectorAll('.nav-link').forEach((link) => {
         link.classList.remove('active');
@@ -107,6 +344,8 @@ function renderHome(db) {
             </div>
         </div>
 
+        ${systemMarkup()}
+
         <div class="section-header">
             <div class="section-eyebrow">${ICONS.terminal}<span>${t('projects_kicker')}</span></div>
             <h2 class="section-title">${t('projects_title')}</h2>
@@ -143,6 +382,7 @@ function renderHome(db) {
             `).join('')}
         </div>
     `;
+    mountSystem(appRoot);
 }
 
 function renderExperience(db) {
